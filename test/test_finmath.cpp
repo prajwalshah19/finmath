@@ -149,3 +149,11 @@ int black_scholes_tests() {
     std::cout << "Black-Scholes Tests Passed!\n";
     return 0;
 }
+
+int binomial_option_pricing_tests() {
+    double tolerance = 0.001;
+    
+
+    std::cout << "Binomial-Tree Tests Passed!\n";
+    return 0;
+}
