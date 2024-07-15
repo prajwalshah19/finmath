@@ -4,24 +4,6 @@
 #include "finmath/binomial_tree.h"
 #include "finmath/helper.h"
 
-// OptionType enum definition
-enum class OptionType {
-    CALL,
-    PUT
-};
-
-// Function to compute combinations (n choose k)
-double combinations(int n, int k) {
-    if (k > n) return 0;
-    if (k == 0 || k == n) return 1;
-    double c = 1;
-    for (int i = 1; i <= k; ++i) {
-        c *= (n - (k - i));
-        c /= i;
-    }
-    return c;
-}
-
 double binomial_option_pricing(OptionType type, double S0, double K, double T, double r, double sigma, int N) {
     double dt = T / N;
     double u = std::exp(sigma * std::sqrt(dt));
