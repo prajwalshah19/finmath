@@ -1,4 +1,4 @@
-#include "finmath/compound_interest.h"
+#include "finmath/Interest and Annuities/compound_interest.h"
 #include <cmath>
 
 double compound_interest(double principal, double rate, int time, int frequency) {

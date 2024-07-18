@@ -138,7 +138,7 @@ int compound_interest_tests() {
         assert(almost_equal(result, expected, tolerance));
     }
 
-    std::cout << "Compound Interest Tests Passed!\n";
+    std::cout << "Compound Interest Tests Passed!" << std::endl;
     return 0;
 }
 
@@ -146,7 +146,7 @@ int black_scholes_tests() {
     double tolerance = 0.001;
     
 
-    std::cout << "Black-Scholes Tests Passed!\n";
+    std::cout << "Black-Scholes Tests Passed!" << std::endl;
     return 0;
 }
 
@@ -154,6 +154,6 @@ int binomial_option_pricing_tests() {
     double tolerance = 0.001;
     
 
-    std::cout << "Binomial-Tree Tests Passed!\n";
+    std::cout << "Binomial-Tree Tests Passed!" << std::endl;
     return 0;
 }

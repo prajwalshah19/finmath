@@ -1,8 +1,8 @@
 #include <cmath>
 #include <algorithm>
 #include <vector>
-#include "finmath/binomial_tree.h"
-#include "finmath/helper.h"
+#include "finmath/Options Pricing/binomial_tree.h"
+#include "finmath/Helper/helper.h"
 
 double binomial_option_pricing(OptionType type, double S0, double K, double T, double r, double sigma, int N) {
     double dt = T / N;
