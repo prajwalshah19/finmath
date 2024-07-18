@@ -13,7 +13,7 @@ set(CMAKE_BUILD_TYPE Debug)
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
 # Source files
-file(GLOB SOURCES "src/cpp/*.cpp")
+file(GLOB SOURCES "src/cpp/*/*.cpp")
 
 # Create the library
 add_library(finmath SHARED ${SOURCES})
