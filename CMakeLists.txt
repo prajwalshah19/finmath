@@ -16,7 +16,11 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 file(GLOB SOURCES "src/cpp/*/*.cpp")
 
 # Create the library
-add_library(finmath SHARED ${SOURCES})
+add_library(finmath SHARED ${SOURCES}
+        "src/cpp/Interest and Annuities/simple_interest.cpp"
+        "include/finmath/Interest and Annuities/simple_interest.h"
+        "include/finmath/Option Pricing/options_pricing.h"
+        "include/finmath/Option Pricing/options_pricing_types.h")
 
 # Test executable
 add_executable(runTests test/test_finmath.cpp)
