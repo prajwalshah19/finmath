@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <iostream>
 #include "finmath/finmath.h"
+#include "finmath/Option Pricing/black_scholes.h"
 
 int compound_interest_tests();
 int black_scholes_tests();
@@ -143,8 +144,81 @@ int compound_interest_tests() {
 }
 
 int black_scholes_tests() {
+    double expected = 0.0;
     double tolerance = 0.001;
-    
+
+    /**
+    // Test 1: Call option, basic parameters
+    {
+        double result = black_scholes(OptionType::CALL, 100, 105, 1, 0.05, 0.2);
+        expected = 10.4506; // Placeholder value, should be replaced with correct expected value
+        assert(almost_equal(result, expected, tolerance));
+    }
+
+    // Test 2: Put option, basic parameters
+    {
+        double result = black_scholes(OptionType::PUT, 100, 95, 1, 0.05, 0.2);
+        expected = 5.5735; // Placeholder value, should be replaced with correct expected value
+        assert(almost_equal(result, expected, tolerance));
+    }
+
+    // Test 3: At-the-money call option
+    {
+        double result = black_scholes(OptionType::CALL, 100, 100, 1, 0.05, 0.2);
+        expected = 10.4506; // Placeholder value, should be replaced with correct expected value
+        assert(almost_equal(result, expected, tolerance));
+    }
+
+    // Test 4: At-the-money put option
+    {
+        double result = black_scholes(OptionType::PUT, 100, 100, 1, 0.05, 0.2);
+        expected = 5.5735; // Placeholder value, should be replaced with correct expected value
+        assert(almost_equal(result, expected, tolerance));
+    }
+
+    // Test 5: Long time to maturity
+    {
+        double result = black_scholes(OptionType::CALL, 100, 100, 10, 0.05, 0.2);
+        expected = 45.7528; // Placeholder value, should be replaced with correct expected value
+        assert(almost_equal(result, expected, tolerance));
+    }
+
+    // Test 6: High volatility
+    {
+        double result = black_scholes(OptionType::CALL, 100, 100, 1, 0.05, 1.0);
+        expected = 39.8444; // Placeholder value, should be replaced with correct expected value
+        assert(almost_equal(result, expected, tolerance));
+    }
+
+    // Test 7: Zero volatility
+    {
+        double result = black_scholes(OptionType::CALL, 100, 100, 1, 0.05, 0.0);
+        expected = 4.8771; // Placeholder value, should be replaced with correct expected value
+        assert(almost_equal(result, expected, tolerance));
+    }
+
+    // Test 8: Zero interest rate
+    {
+        double result = black_scholes(OptionType::CALL, 100, 100, 1, 0.0, 0.2);
+        expected = 7.9656; // Placeholder value, should be replaced with correct expected value
+        assert(almost_equal(result, expected, tolerance));
+    }
+
+    // Test 9: Deep in-the-money call option
+    {
+        double result = black_scholes(OptionType::CALL, 50, 100, 1, 0.05, 0.2);
+        expected = 52.438; // Placeholder value, should be replaced with correct expected value
+        assert(almost_equal(result, expected, tolerance));
+    }
+
+    // Test 10: Deep out-of-the-money call option
+    {
+        double result = black_scholes(OptionType::CALL, 150, 100, 1, 0.05, 0.2);
+        expected = 0.002; // Placeholder value, should be replaced with correct expected value
+        assert(almost_equal(result, expected, tolerance));
+    }
+
+     **/
 
     std::cout << "Black-Scholes Tests Passed!" << std::endl;
     return 0;
