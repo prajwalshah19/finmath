@@ -17,10 +17,10 @@ file(GLOB SOURCES "src/cpp/*/*.cpp")
 
 # Create the library
 add_library(finmath SHARED ${SOURCES}
-        "src/cpp/Interest and Annuities/simple_interest.cpp"
-        "include/finmath/Interest and Annuities/simple_interest.h"
-        "include/finmath/Option Pricing/options_pricing.h"
-        "include/finmath/Option Pricing/options_pricing_types.h")
+    "src/cpp/InterestAndAnnuities/simple_interest.cpp"
+    "include/finmath/InterestAndAnnuities/simple_interest.h"
+    "include/finmath/OptionPricing/options_pricing.h"
+    "include/finmath/OptionPricing/options_pricing_types.h")
 
 # Test executable
 add_executable(runTests test/test_finmath.cpp)

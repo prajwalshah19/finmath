@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <iostream>
 #include "finmath/finmath.h"
-#include "finmath/Option Pricing/black_scholes.h"
+#include "finmath/OptionPricing/black_scholes.h"
 
 int compound_interest_tests();
 int black_scholes_tests();
