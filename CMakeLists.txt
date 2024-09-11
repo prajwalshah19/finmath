@@ -41,3 +41,15 @@ add_custom_target(build_and_test
 
 # Make 'build_and_test' the default target
 add_custom_target(default ALL DEPENDS build_and_test)
+
+# Add pybind11 for Python bindings
+include(FetchContent)
+FetchContent_Declare(
+    pybind11
+    GIT_REPOSITORY https://github.com/pybind/pybind11.git
+    GIT_TAG v2.10.0  # Use a stable version of pybind11
+)
+FetchContent_MakeAvailable(pybind11)
+
+# Create the Python bindings target
+pybind11_add_module(finmath_bindings src/python_bindings.cpp ${SOURCES})
