@@ -6,13 +6,13 @@
 namespace py = pybind11;
 
 PYBIND11_MODULE(finmath_bindings, m) {
-    m.doc() = "Financial Math Library";  // Optional module documentation
+    m.doc() = "Financial Math Library";
+
     // Expose the OptionType enum class
     py::enum_<OptionType>(m, "OptionType")
         .value("CALL", OptionType::CALL)
         .value("PUT", OptionType::PUT)
         .export_values();
-
 
     // Bind compound interest function
     m.def("compound_interest", &compound_interest, "Calculate compound interest",
