@@ -14,7 +14,7 @@ time_to_maturity = 1
 rate_of_interest = 0.05
 volatility = 0.2
 option_type = finmath.OptionType.CALL
-N = 100
+N = 1000
 
 # Test cases for timing
 def test_python_compound_interest():
@@ -36,7 +36,7 @@ def test_c_binomial_tree():
     return finmath.binomial_option_pricing(finmath.OptionType.CALL, price, strike, time_to_maturity, rate_of_interest, volatility, N)
 
 # Number of executions for accurate comparison
-executions = 10000
+executions = 100
 
 # Timing the compound interest function in Python
 python_ci_time = timeit.timeit(test_python_compound_interest, number=executions)

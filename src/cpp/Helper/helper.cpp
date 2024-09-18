@@ -12,14 +12,20 @@ double normal_pdf(double x) {
     return std::exp(-0.5 * x * x) / std::sqrt(2 * M_PI);
 }
 
-// Function to compute combinations (n choose k)
-double combinations(int n, int k) {
-    if (k > n) return 0;
-    if (k == 0 || k == n) return 1;
-    double c = 1;
-    for (int i = 1; i <= k; ++i) {
-        c *= (n - (k - i));
-        c /= i;
+long long combinations(long n, long k) {
+    // Ensure k <= n - k to minimize operations
+    if (k > n - k) {
+        k = n - k;
     }
-    return c;
+
+    long long result = 1;  // Use long long to handle large numbers
+
+    // Efficiently compute the binomial coefficient
+    for (long i = 0; i < k; ++i) {
+        result *= (n - i);    // Multiply by (n - i)
+        result /= (i + 1);    // Divide by (i + 1)
+    }
+
+    return result;
 }
+
