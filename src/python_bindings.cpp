@@ -1,11 +1,14 @@
 #include <pybind11/pybind11.h>
+#include <pybind11/stl.h>  // Automatic conversion between Python lists and std::vector
+
 #include "finmath/InterestAndAnnuities/compound_interest.h"
 #include "finmath/OptionPricing/black_scholes.h"
 #include "finmath/OptionPricing/binomial_tree.h"
+#include "finmath/TimeSeries/rolling_volatility.h"
 
 namespace py = pybind11;
 
-PYBIND11_MODULE(finmath_bindings, m) {
+PYBIND11_MODULE(finmath, m) {
     m.doc() = "Financial Math Library";
 
     // Expose the OptionType enum class
@@ -25,4 +28,8 @@ PYBIND11_MODULE(finmath_bindings, m) {
     // Bind binomial option pricing function
     m.def("binomial_option_pricing", &binomial_option_pricing, "Binomial Option Pricing",
           py::arg("type"), py::arg("S0"), py::arg("K"), py::arg("T"), py::arg("r"), py::arg("sigma"), py::arg("N"));
+
+    // Bind rolling volatility
+    m.def("rolling_volatility", &rolling_volatility, "Rolling Volatility",
+          py::arg("prices"), py::arg("window_size"));
 }
