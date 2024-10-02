@@ -26,3 +26,4 @@ improvement_percentage = ((gs_time - cpp_time) / gs_time) * 100
 print(f"gs_quant implementation: {gs_time:.6f} seconds")
 print(f"C++ implementation: {cpp_time:.6f} seconds")
 print(f"Performance improvement from using finmath: {improvement_percentage:.2f}%")
+
