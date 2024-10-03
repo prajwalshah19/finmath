@@ -147,35 +147,36 @@ int black_scholes_tests() {
     double expected = 0.0;
     double tolerance = 0.001;
 
-    /**
+
     // Test 1: Call option, basic parameters
     {
         double result = black_scholes(OptionType::CALL, 100, 105, 1, 0.05, 0.2);
-        expected = 10.4506; // Placeholder value, should be replaced with correct expected value
+        expected = 13.8579;
         assert(almost_equal(result, expected, tolerance));
     }
 
     // Test 2: Put option, basic parameters
     {
         double result = black_scholes(OptionType::PUT, 100, 95, 1, 0.05, 0.2);
-        expected = 5.5735; // Placeholder value, should be replaced with correct expected value
+        expected = 7.6338;
         assert(almost_equal(result, expected, tolerance));
     }
 
     // Test 3: At-the-money call option
     {
         double result = black_scholes(OptionType::CALL, 100, 100, 1, 0.05, 0.2);
-        expected = 10.4506; // Placeholder value, should be replaced with correct expected value
+        expected = 10.4506;
         assert(almost_equal(result, expected, tolerance));
     }
 
     // Test 4: At-the-money put option
     {
         double result = black_scholes(OptionType::PUT, 100, 100, 1, 0.05, 0.2);
-        expected = 5.5735; // Placeholder value, should be replaced with correct expected value
+        expected = 5.5735;
         assert(almost_equal(result, expected, tolerance));
     }
 
+    /**
     // Test 5: Long time to maturity
     {
         double result = black_scholes(OptionType::CALL, 100, 100, 10, 0.05, 0.2);
@@ -218,8 +219,8 @@ int black_scholes_tests() {
         assert(almost_equal(result, expected, tolerance));
     }
 
-     **/
 
+    **/
     std::cout << "Black-Scholes Tests Passed!" << std::endl;
     return 0;
 }
