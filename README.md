@@ -72,7 +72,6 @@ print(f"Black-Scholes Option Price: {option_price}")
 prices = [100, 101, 102, 100, 99, 98, 100, 102, 103, 104, 105]  # Example price series
 vol = finmath.rolling_volatility(prices, 22)
 print(f"Rolling Volatility: {vol}")
-
 ```
 
 ### C++
@@ -80,7 +79,13 @@ print(f"Rolling Volatility: {vol}")
 If you want to use the library directly in C++:
 
 ```cpp
-#include "finmath/InterestAndAnnuities/compound_interest.h"#include "finmath/OptionPricing/black_scholes.h"#include "finmath/TimeSeries/rolling_volatility.h"#include <iostream>#include <vector>int main() {
+#include "finmath/InterestAndAnnuities/compound_interest.h"
+#include "finmath/OptionPricing/black_scholes.h"
+#include "finmath/TimeSeries/rolling_volatility.h"
+#include <iostream>
+#include <vector>
+
+int main() {
     double principal = 1000;
     double rate = 5;
     int time = 10;
@@ -95,7 +100,6 @@ If you want to use the library directly in C++:
 
     return 0;
 }
-
 ```
 
 ## Benchmarking
