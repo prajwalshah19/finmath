@@ -1,6 +1,6 @@
 # finmath
 
-**finmath** is a high-performance financial mathematics library written in C++ with Python bindings using `pybind11`. The library includes various functions for calculating compound interest, option pricing (including Black-Scholes and Binomial Tree models), and rolling volatility. The goal is to provide a fast and reliable tool for financial calculations that can be used in Python for ease of integration with data science workflows.
+**finmath** is a high-performance financial mathematics library written in C++ with Python bindings using `pybind11`. The library includes various functions for calculating compound interest, option pricing (including Black-Scholes and Binomial Tree models), and time series analysis. The goal is to provide a fast and reliable tool for financial calculations that can be used in Python.
 
 ## Installation
 
