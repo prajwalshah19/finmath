@@ -6,8 +6,8 @@ project(finmath)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Add debugging symbols
-set(CMAKE_BUILD_TYPE Debug)
+# Add debugging symbols (set to Release for optimized performance if needed)
+set(CMAKE_BUILD_TYPE Release)
 
 # Add include directories
 include_directories(${PROJECT_SOURCE_DIR}/include)
@@ -15,16 +15,17 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 # Source files
 file(GLOB SOURCES "src/cpp/*/*.cpp")
 
-# Create the library
-add_library(finmath SHARED ${SOURCES}
+# Create the main C++ library target with a unique name
+add_library(finmath_library SHARED ${SOURCES}
     "src/cpp/InterestAndAnnuities/simple_interest.cpp"
     "include/finmath/InterestAndAnnuities/simple_interest.h"
     "include/finmath/OptionPricing/options_pricing.h"
-    "include/finmath/OptionPricing/options_pricing_types.h")
+    "include/finmath/OptionPricing/options_pricing_types.h"
+    "include/finmath/TimeSeries/rolling_volatility.h")
 
 # Test executable
 add_executable(runTests test/test_finmath.cpp)
-target_link_libraries(runTests finmath)
+target_link_libraries(runTests finmath_library)
 
 # Enable testing
 enable_testing()
@@ -53,3 +54,9 @@ FetchContent_MakeAvailable(pybind11)
 
 # Create the Python bindings target
 pybind11_add_module(finmath_bindings src/python_bindings.cpp ${SOURCES})
+
+# Set the output name of the bindings to 'finmath' to match your desired module name
+set_target_properties(finmath_bindings PROPERTIES OUTPUT_NAME "finmath")
+
+# Link the Python bindings target with the C++ library
+target_link_libraries(finmath_bindings PRIVATE finmath_library)
