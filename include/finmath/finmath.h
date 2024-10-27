@@ -5,7 +5,8 @@
 #include "finmath/InterestAndAnnuities/compound_interest.h"
 #include "finmath/OptionPricing/options_pricing.h"
 #include "finmath/TimeSeries/rolling_volatility.h"
-
+#include "finmath/TimeSeries/simple_moving_average.h"
+#include "finmath/TimeSeries/rsi.h"
 // Include other headers as needed
 
 #endif // FINMATH_H

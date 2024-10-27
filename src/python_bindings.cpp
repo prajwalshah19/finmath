@@ -5,6 +5,8 @@
 #include "finmath/OptionPricing/black_scholes.h"
 #include "finmath/OptionPricing/binomial_tree.h"
 #include "finmath/TimeSeries/rolling_volatility.h"
+#include "finmath/TimeSeries/simple_moving_average.h"
+#include "finmath/TimeSeries/rsi.h"
 
 namespace py = pybind11;
 
@@ -31,5 +33,11 @@ PYBIND11_MODULE(finmath, m) {
 
     // Bind rolling volatility
     m.def("rolling_volatility", &rolling_volatility, "Rolling Volatility",
+          py::arg("prices"), py::arg("window_size"));
+
+    m.def("simple_moving_average", &simple_moving_average, "Simple Moving Average",
+          py::arg("prices"), py::arg("window_size"));
+
+    m.def("rsi", &compute_rsi, "Relative Strength Index(RSI)",
           py::arg("prices"), py::arg("window_size"));
 }
