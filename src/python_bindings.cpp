@@ -42,6 +42,9 @@ PYBIND11_MODULE(finmath, m) {
     m.def("rsi", &compute_rsi, "Relative Strength Index",
           py::arg("prices"), py::arg("window_size"));
 
-    m.def("ema", &compute_ema, "Exponential Moving Average",
+    m.def("ema_window", &compute_ema, "Exponential Moving Average - Window",
           py::arg("prices"), py::arg("window_size"));
+
+    m.def("ema_smoothing", &compute_ema_with_smoothing, "Exponential Moving Average - Smoothing Factor",
+            py::arg("prices"), py::arg("smoothing_factor"));
 }
