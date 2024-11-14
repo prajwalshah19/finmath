@@ -5,6 +5,7 @@
 #include "finmath/OptionPricing/black_scholes.h"
 #include "finmath/OptionPricing/binomial_tree.h"
 #include "finmath/TimeSeries/rolling_volatility.h"
+#include "finmath/Regression/OLS.h"
 
 namespace py = pybind11;
 
@@ -32,4 +33,11 @@ PYBIND11_MODULE(finmath, m) {
     // Bind rolling volatility
     m.def("rolling_volatility", &rolling_volatility, "Rolling Volatility",
           py::arg("prices"), py::arg("window_size"));
+
+    // Bind OLS
+    py::class_<OLS>(m, "OLS")
+        .def(py::init<const std::vector<std::vector<double>>&, const std::vector<double>&>())
+        .def("get_coefficients", &OLS::get_coefficients)
+        .def("get_intercept", &OLS::get_intercept)
+        .def("predict", &OLS::predict);
 }

@@ -6,6 +6,10 @@ project(finmath)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
+# Find Eigen
+find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+include_directories("/opt/homebrew/opt/eigen/include/eigen3")
+
 # Add debugging symbols (set to Release for optimized performance if needed)
 set(CMAKE_BUILD_TYPE Release)
 
@@ -21,7 +25,12 @@ add_library(finmath_library SHARED ${SOURCES}
     "include/finmath/InterestAndAnnuities/simple_interest.h"
     "include/finmath/OptionPricing/options_pricing.h"
     "include/finmath/OptionPricing/options_pricing_types.h"
-    "include/finmath/TimeSeries/rolling_volatility.h")
+    "include/finmath/TimeSeries/rolling_volatility.h"
+    "include/finmath/Regression/OLS.h")
+
+# Add Eigen library for matrix operations
+find_package(Eigen3 3.3 REQUIRED NO_MODULE)
+target_link_libraries(finmath_library PRIVATE Eigen3::Eigen)
 
 # Test executable
 add_executable(runTests test/test_finmath.cpp)

@@ -1,10 +1,11 @@
 #include "finmath/TimeSeries/rolling_volatility.h"
 
+#include <iostream>
 #include <algorithm>
 #include <cmath>
-#include <iostream>
 #include <numeric>
 #include <vector>
+#include <cstdio>
 
 // Function to compute the logarithmic returns
 std::vector<double> compute_log_returns(const std::vector<double>& prices) {
