@@ -26,7 +26,9 @@ add_library(finmath_library SHARED ${SOURCES}
     "include/finmath/OptionPricing/options_pricing.h"
     "include/finmath/OptionPricing/options_pricing_types.h"
     "include/finmath/TimeSeries/rolling_volatility.h"
-    "include/finmath/Regression/OLS.h")
+    "include/finmath/Regression/OLS.h"
+    "include/finmath/TimeSeries/simple_moving_average.h"
+    "include/finmath/TimeSeries/rsi.h")
 
 # Add Eigen library for matrix operations
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)

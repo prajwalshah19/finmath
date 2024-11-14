@@ -32,7 +32,6 @@ void OLS::calculate_ols(const std::vector<std::vector<double>>& X, const std::ve
 std::vector<double> OLS::get_coefficients() const {
     return coefficients;
 }
-
 double OLS::get_intercept() const {
     return intercept;
 }
