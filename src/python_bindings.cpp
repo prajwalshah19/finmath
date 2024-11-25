@@ -7,6 +7,7 @@
 #include "finmath/TimeSeries/rolling_volatility.h"
 #include "finmath/TimeSeries/simple_moving_average.h"
 #include "finmath/TimeSeries/rsi.h"
+#include "finmath/TimeSeries/autocorrelation.h"
 
 namespace py = pybind11;
 
@@ -40,4 +41,11 @@ PYBIND11_MODULE(finmath, m) {
 
     m.def("rsi", &compute_rsi, "Relative Strength Index(RSI)",
           py::arg("prices"), py::arg("window_size"));
+
+    // Bind autocorrelation function
+    m.def("autocorrelation", &autocorrelation, "Autocorrelation(regular time intervals)",
+          py::arg("values"), py::arg("max_lag"));
+
+    m.def("autocorrelation_irregular", &autocorrelation_irregular, "Autocorrelation(irregular time intevals"),
+        py::arg("values"), py::arg("times"), py::arg("maxlag"), py::arg("step_size"));
 }
