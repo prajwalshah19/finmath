@@ -28,4 +28,3 @@ long long combinations(long n, long k) {
 
     return result;
 }
-
